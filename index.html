@@ -104,44 +104,6 @@ insureCookieBanner("OneTrust", function(t) {
                     var second_level = $(this);
                     var second_level_name = second_level[0].childNodes[0];
 										var second_level_name_lower = second_level_name.data.toLowerCase().trim();
-                     second_level.attr({'data-gal':second_level_name_lower, 'data-gaa':main_level_name, 'data-gac':'main menu'});
-                });
-				}
-				
-			});
-		    
-		});
-		
-     $( '.elementor-nav-menu--dropdown .elementor-nav-menu>li.menu-item:not(.nav-login, .nav-cta)' ).each(function( index ) {
-          var that = $(this);
-          var name = that.find('a.elementor-item')[0].innerText.toLowerCase().trim();
-          that.find( 'ul.sub-menu a.elementor-sub-item' ).each(function( i ){
-                var that_sub = $(this);
-                if( that_sub.attr('href') != '#' ){
-                    var sub_nav_name = that_sub[0].childNodes[0].data.toLowerCase().trim();
-                    that_sub.attr({'data-gal':sub_nav_name, 'data-gaa':name, 'data-gac':'main menu'});
-                }
-            });
-        });
-	});
-})(jQuery);
-
-</script>
-<script type="text/javascript">
- 
-(function($){
-	$(function() {
-		$( 'section.main-header' ).each(function( index ) {
-		    $(this).find( '.elementor-nav-menu>li.menu-item' ).each(function( i ){
-				var that = $(this);
-				var main_level = that.find('a.elementor-item-anchor');
-				if(main_level.length>0){
-				    var main_level_name = main_level[0].innerText.toLowerCase().trim();
-			
-				    that.find( 'ul.sub-menu a.elementor-sub-item' ).each(function( i ){
-                    var second_level = $(this);
-                    var second_level_name = second_level[0].childNodes[0];
-										var second_level_name_lower = second_level_name.data.toLowerCase().trim();
                      second_level.attr({
 											'data-gtm-event_name': 'element_click',
 											'data-gtm-level_1': main_level_name,
@@ -170,6 +132,44 @@ insureCookieBanner("OneTrust", function(t) {
 											'data-gtm-action_type': 'navigation',
 											'data-gtm-element-location': 'main menu'
 										});
+                }
+            });
+        });
+	});
+})(jQuery);
+
+</script>
+<script type="text/javascript">
+ 
+(function($){
+	$(function() {
+		$( 'section.main-header' ).each(function( index ) {
+		    $(this).find( '.elementor-nav-menu>li.menu-item' ).each(function( i ){
+				var that = $(this);
+				var main_level = that.find('a.elementor-item-anchor');
+				if(main_level.length>0){
+				    var main_level_name = main_level[0].innerText.toLowerCase().trim();
+			
+				    that.find( 'ul.sub-menu a.elementor-sub-item' ).each(function( i ){
+                    var second_level = $(this);
+                    var second_level_name = second_level[0].childNodes[0];
+										var second_level_name_lower = second_level_name.data.toLowerCase().trim();
+                     second_level.attr({'data-gal':second_level_name_lower, 'data-gaa':main_level_name, 'data-gac':'main menu'});
+                });
+				}
+				
+			});
+		    
+		});
+		
+     $( '.elementor-nav-menu--dropdown .elementor-nav-menu>li.menu-item:not(.nav-login, .nav-cta)' ).each(function( index ) {
+          var that = $(this);
+          var name = that.find('a.elementor-item')[0].innerText.toLowerCase().trim();
+          that.find( 'ul.sub-menu a.elementor-sub-item' ).each(function( i ){
+                var that_sub = $(this);
+                if( that_sub.attr('href') != '#' ){
+                    var sub_nav_name = that_sub[0].childNodes[0].data.toLowerCase().trim();
+                    that_sub.attr({'data-gal':sub_nav_name, 'data-gaa':name, 'data-gac':'main menu'});
                 }
             });
         });
@@ -836,7 +836,7 @@ insureCookieBanner("OneTrust", function(t) {
 
 
 		</div>
-				<h4>3.15.0-cloud1 - 2023-05-31</h4><ul><li>Tweak: M</li><li>Fix: U</li></ul></div>
+				<h4>3.15.0-cloud1 - 2023-05-31</h4><ul><li>Tweak: Make Elementor gallery control keyboard accessible&nbsp;ED-10378</li><li>Fix: Unable to save Global Widget&nbsp;&nbsp;ED-10855</li></ul></div>
 					</div>
 		</div>
 							</div>
@@ -1195,20 +1195,6 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/elementor.com\/wp-admin\/
 <script type="text/javascript" src="https://elementor.com/marketing/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.11.7" id="e-sticky-js"></script>
 <script>
 jQuery(document).ready(function($) {
-$('a[alt]').each(function() {
-    var curElem = $(this);
-    curElem.attr("aria-label", curElem.attr('alt')).removeAttr('alt');
-});
-});
-</script>
-<script>
-jQuery(document).ready(function(){
-  
-    jQuery(".nav-cta").attr("data-gac", "CTA Elements").attr("data-gaa", "onboarding button click").attr("data-gal", "mobile main menu");
-});
-</script>
-<script>
-jQuery(document).ready(function($) {
 
 			$( 'body' ).on('click', '.close-exit-intent', function() {
 				$( '.exit-intent' ).remove();
@@ -1308,6 +1294,20 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 	
+});
+</script>
+<script>
+jQuery(document).ready(function(){
+  
+    jQuery(".nav-cta").attr("data-gac", "CTA Elements").attr("data-gaa", "onboarding button click").attr("data-gal", "mobile main menu");
+});
+</script>
+<script>
+jQuery(document).ready(function($) {
+$('a[alt]').each(function() {
+    var curElem = $(this);
+    curElem.attr("aria-label", curElem.attr('alt')).removeAttr('alt');
+});
 });
 </script>
 
